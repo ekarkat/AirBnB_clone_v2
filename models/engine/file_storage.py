@@ -57,11 +57,11 @@ class FileStorage:
             pass
 
     def delete(self, obj=None):
-        """Delete an object"""
+        """Delete obj"""
         try:
+            obj_id = str(obj.__class__.__name__ + "." + str(obj.id))
             if str(obj.__class__.__name__ + "." + str(obj.id))\
-                in FileStorage.__objects:
-                del FileStorage.__objects[str(\
-                    obj.__class__.__name__ + "." + str(obj.id))]
+                    in FileStorage.__objects:
+                del FileStorage.__objects[obj_id]
         except Exception:
             pass
