@@ -9,13 +9,15 @@ class FileStorage:
     __objects = {}
 
     def all(self, cls=None):
-        """ return class """
+        """Returns a dictionary of models currently in storage"""
         if cls:
             cls_obj = {}
             for key, val in FileStorage.__objects.items():
                 if val.__class__.__name__ is cls.__name__:
                     cls_obj[key] = val
             return cls_obj
+
+        return FileStorage.__objects
 
     def new(self, obj):
         """Adds new object to storage dictionary"""
@@ -55,9 +57,11 @@ class FileStorage:
             pass
 
     def delete(self, obj=None):
-        """Delete an obj"""
+        """Delete an object"""
         try:
-            obj_id = obj.to_dict()['__class__'] + '.' + obj.id
-            del self.__objects[obj_id]
+            if str(obj.__class__.__name__ + "." + str(obj.id))\
+                in FileStorage.__objects:
+                del FileStorage.__objects[str(\
+                    obj.__class__.__name__ + "." + str(obj.id))]
         except Exception:
             pass
