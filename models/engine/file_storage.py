@@ -9,7 +9,7 @@ class FileStorage:
     __objects = {}
 
     def all(self, cls=None):
-        """ Returns the dictionary __objects. """
+        """ return class """
         if cls is not None:
             if type(cls) == str:
                 cls = eval(cls)
@@ -59,6 +59,7 @@ class FileStorage:
             pass
 
     def delete(self, obj=None):
+        """Delete an obj"""
         try:
             obj_id = obj.to_dict()['__class__'] + '.' + obj.id
             del self.__objects[obj_id]
