@@ -6,7 +6,7 @@ from models import state
 
 
 
-sta = state.State()
+sta = state.State(name="aa")
 
 sta.id = "292be8d1-ec58-4b10-abd9-23b7f5fb0e96"
 

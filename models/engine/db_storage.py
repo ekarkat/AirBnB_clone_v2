@@ -11,6 +11,7 @@ from models.city import City
 from models.place import Place
 from models.review import Review
 from models.user import User
+from models.amenity import Amenity
 from sqlalchemy.orm import scoped_session
 from os import getenv
 
@@ -42,6 +43,7 @@ class DBStorage():
             result.extend(self.__session.query(User).all())
             result.extend(self.__session.query(Place).all())
             result.extend(self.__session.query(Review).all())
+            result.extend(self.__session.query(Amenity).all())
         else:
             result = self.__session.query(cls).all()
             print("hello")
@@ -49,7 +51,6 @@ class DBStorage():
         for obj in result:
             key = "{}.{}".format(type(obj).__name__, obj.id)
             objs_dic[key] = obj
-            del objs_dic[key]._sa_instance_state
 
         return (objs_dic)
 
