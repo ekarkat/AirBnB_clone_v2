@@ -1,0 +1,23 @@
+{
+    "State.9ebc2137-295f-4450-baee-2ffece01587c": {
+        "id": "9ebc2137-295f-4450-baee-2ffece01587c",
+        "created_at": "2023-11-22T15:21:09.181179",
+        "updated_at": "2023-11-22T15:21:09.181187",
+        "name": "California",
+        "__class__": "State"
+    },
+    "State.8125d8f6-77dd-45c6-bdba-c389ca88c4d7": {
+        "id": "8125d8f6-77dd-45c6-bdba-c389ca88c4d7",
+        "created_at": "2023-11-22T15:21:09.181817",
+        "updated_at": "2023-11-22T15:21:09.181821",
+        "name": "Nevada",
+        "__class__": "State"
+    },
+    "State.fddc253a-cac4-4a19-8ace-d2ac88f781b9": {
+        "id": "fddc253a-cac4-4a19-8ace-d2ac88f781b9",
+        "created_at": "2023-11-22T15:23:01.023756",
+        "updated_at": "2023-11-22T15:23:01.023767",
+        "name": "California",
+        "__class__": "State"
+    }
+}
