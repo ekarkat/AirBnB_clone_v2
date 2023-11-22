@@ -40,6 +40,7 @@ class DBStorage():
             result = self.__session.query(State).all()
             result.extend(self.__session.query(City).all())
             result.extend(self.__session.query(User).all())
+            result.extend(self.__session.query(Place).all())
         else:
             result = self.__session.query(cls).all()
             print("hello")
