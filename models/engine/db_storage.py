@@ -39,14 +39,18 @@ class DBStorage():
         if not cls:
             result = self.__session.query(State).all()
             result.extend(self.__session.query(City).all())
+            result.extend(self.__session.query(User).all())
         else:
             result = self.__session.query(cls).all()
+            print("hello")
 
         for obj in result:
             key = "{}.{}".format(type(obj).__name__, obj.id)
             objs_dic[key] = obj
-            del objs_dic[key]._sa_instance_state
-
+            try:
+                del objs_dic[key]._sa_instance_state
+            except AttributeError:
+                pass
         return (objs_dic)
 
     def new(self, obj):
