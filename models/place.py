@@ -3,6 +3,7 @@
 from models.base_model import BaseModel, Base
 from sqlalchemy import Column, Integer, String, DateTime, ForeignKey, Float
 from sqlalchemy.orm import relationship
+from os import getenv
 
 
 class Place(BaseModel, Base):
@@ -21,11 +22,12 @@ class Place(BaseModel, Base):
     reviews = relationship("Review", backref="place", cascade="all, delete")
     amenity_ids = []
 
-    @property
-    def reviews(self):
-        """Get a list of all related Review objects."""
-        list_reviews = []
-        for review in list(models.storage.all(Review).values()):
-            if review.place_id == self.id:
-                list_reviews.append(review)
-        return list_reviews
+    if getenv("HBNB_TYPE_STORAGE") != "db":
+        @property
+        def reviews(self):
+            """Get a list of all related Review objects."""
+            list_reviews = []
+            for review in list(models.storage.all(Review).values()):
+                if review.place_id == self.id:
+                    list_reviews.append(review)
+            return list_reviews
