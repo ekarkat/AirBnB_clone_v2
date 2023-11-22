@@ -49,6 +49,7 @@ class DBStorage():
         for obj in result:
             key = "{}.{}".format(type(obj).__name__, obj.id)
             objs_dic[key] = obj
+            del objs_dic[key]._sa_instance_state
 
         return (objs_dic)
 
