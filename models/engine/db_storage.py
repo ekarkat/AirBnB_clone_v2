@@ -46,7 +46,6 @@ class DBStorage():
             result.extend(self.__session.query(Amenity).all())
         else:
             result = self.__session.query(cls).all()
-            print("hello")
 
         for obj in result:
             key = "{}.{}".format(type(obj).__name__, obj.id)
