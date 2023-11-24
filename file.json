@@ -103,5 +103,12 @@
         "place_id": "e0a57362-2f9e-4e1b-b588-da42f41d6552",
         "user_id": "a75dfd99-b491-4181-a440-a0c79ebc2511",
         "__class__": "Review"
+    },
+    "State.9d91657d-396d-437c-b999-ec42be96b95c": {
+        "id": "9d91657d-396d-437c-b999-ec42be96b95c",
+        "created_at": "2023-11-23T11:27:04.624553",
+        "updated_at": "2023-11-23T11:27:04.624563",
+        "name": "Grand Casa",
+        "__class__": "State"
     }
 }

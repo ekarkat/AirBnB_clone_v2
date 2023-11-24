@@ -2,16 +2,32 @@ from sys import argv
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from models.base_model import BaseModel, Base
-from models.state import State
-from models.city import City
-from models.place import Place
-from models.review import Review
-from models.user import User
-from models.amenity import Amenity
 from sqlalchemy.orm import scoped_session
 from os import getenv
+from dotenv import load_dotenv
 
 
-pla = Place()
 
-print(type(pla.description))
+load_dotenv()
+print(getenv("HBNB_TYPE_STORAGE"))
+
+
+engine = create_engine("mysql+mysqldb://{}:{}@{}/{}".format(
+									"hbnb_dev",
+									"hbnb_dev_pwd",
+									"localhost",
+									"hbnb_dev_db"),
+								pool_pre_ping=True)
+
+
+
+Session = sessionmaker(bind=engine)
+
+session = Session()
+
+# re = session.query(State).all()
+
+# session.delete(re[0])
+# session.commit()
+
+# print(re[0])
