@@ -2,11 +2,8 @@
 #setting up nginx
 
 # Install Nginx
-sudo apt-get update
-sudo apt-get -y install nginx
-
-# Getting permission to edit config files:
-sudo chown -R "$USER":"$USER" /etc/nginx/sites-enabled
+apt-get update
+apt-get install -y nginx
 
 # Create web_static folder if it doesnt exist and shared
 mkdir -p /data/web_static/releases/test/
@@ -22,13 +19,14 @@ echo "Hello hbnb_static!" > /data/web_static/releases/test/index.html
 ln -sf /data/web_static/releases/test/ /data/web_static/current
 
 # Configuring nginx 
-sudo rm /etc/nginx/sites-enabled/default
 echo "server {
 	listen 80 default_server;
 	listen [::]:80 default_server;
 
 	root /var/www/html;
 	index index.html;
+
+	add_header X-Served-By $(hostname) always;
 
 	location /hbnb_static {
 		alias /data/web_static/current/;
@@ -44,10 +42,7 @@ echo "server {
         root /var/www/html;
         internal;
     }
-}" > /etc/nginx/sites-enabled/default
-
-# Configure Error 404
-echo "Ceci n'est pas une page" > /var/www/html/404.html
+}" > /etc/nginx/sites-available/default
 
 # Restart nginx services 
 sudo service nginx restart
