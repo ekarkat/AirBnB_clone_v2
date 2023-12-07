@@ -5,7 +5,11 @@ from models.base_model import BaseModel, Base
 from sqlalchemy.orm import scoped_session
 from os import getenv
 from dotenv import load_dotenv
-
+from models.state import State
+from models.city import City
+from models.place import Place
+from models.review import Review
+from models.user import User
 
 
 load_dotenv()
@@ -25,9 +29,6 @@ Session = sessionmaker(bind=engine)
 
 session = Session()
 
-# re = session.query(State).all()
 
-# session.delete(re[0])
-# session.commit()
 
-# print(re[0])
+
