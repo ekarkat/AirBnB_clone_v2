@@ -16,7 +16,7 @@ mkdir -p /data/web_static/shared/
 sudo chown -R "ubuntu":"ubuntu" /data/
 
 # Create a fake HTML file 
-echo "Hello World!" > /data/web_static/releases/test/index.html
+echo "Hello hbnb_static!" > /data/web_static/releases/test/index.html
 
 # Create a symbolik link 
 ln -sf /data/web_static/releases/test/ /data/web_static/current
@@ -32,6 +32,7 @@ echo "server {
 
 	location /hbnb_static {
 		alias /data/web_static/current/;
+		index index.html;
 	}
 
 	location /redirect_me {
