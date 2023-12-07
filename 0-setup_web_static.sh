@@ -9,9 +9,8 @@ sudo apt-get -y install nginx
 sudo chown -R "$USER":"$USER" /etc/nginx/sites-enabled
 
 # Create web_static folder if it doesnt exist and shared
-sudo mkdir -p /data/web_static/releases/
-sudo mkdir -p /data/web_static/shared/
-sudo mkdir -p /data/web_static/releases/test/
+mkdir -p /data/web_static/releases/test/
+mkdir -p /data/web_static/shared/
 
 # Granting permission to ubuntu user for /data
 sudo chown -R "ubuntu":"ubuntu" /data/
