@@ -22,7 +22,7 @@ def do_pack():
     local("mkdir -p versions")
     try:
         local("tar -cvzf {}.tgz web_static".format(file))
-        return (file)
+        return ("{}.tgz".format(file))
     except Exception:
         return (None)
 
