@@ -13,26 +13,26 @@ def do_pack():
     """Create a tgz archive for web_static."""
     date = datetime.utcnow()
     file_l = "versions/web_static_{}{}{}{}{}{}.tgz".format(date.year,
-                                                         date.month,
-                                                         date.day,
-                                                         date.hour,
-                                                         date.minute,
-                                                         date.second)
+                                                           date.month,
+                                                           date.day,
+                                                           date.hour,
+                                                           date.minute,
+                                                           date.second)
 
     local("mkdir -p versions")
     try:
         file = file_l.split("/")[-1]
         filename = file.split(".")[0]
-        local("tar -cvzf {} web_static".format(file))
+        local("tar -cvzf {} web_static".format(file_l))
         pat = "/data/web_static/releases/"
         local("cp {} /tmp/".format(file_l))
         local("mkdir -p {}{}/".format(pat, filename))
         local("tar -xzf /tmp/{} -C {}{}/".format(file, pat, filename))
         local("rm /tmp/{}".format(file))
-        local("mv {}{}/web_static/* {}{}/".format(pat, filename, pat, filename))
+        local("mv {0}{1}/web_static/* {0}{1}/".format(pat, filename))
         local("rm -rf {}{}/web_static".format(pat, filename))
         local("rm -rf /data/web_static/current")
-        local("ln -sf {}{}/ /data/web_static/current".format(pat, filename))        
+        local("ln -sf {}{}/ /data/web_static/current".format(pat, filename))
         return (file_l)
     except Exception:
         return (None)
