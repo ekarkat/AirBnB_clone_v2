@@ -12,17 +12,17 @@ env.hosts = ["35.153.93.177", "34.203.77.10"]
 def do_pack():
     """Create a tgz archive for web_static."""
     date = datetime.utcnow()
-    file = "versions/web_static_{}{}{}{}{}{}".format(date.year,
-                                                     date.month,
-                                                     date.day,
-                                                     date.hour,
-                                                     date.minute,
-                                                     date.second)
+    file = "versions/web_static_{}{}{}{}{}{}.tgz".format(date.year,
+                                                         date.month,
+                                                         date.day,
+                                                         date.hour,
+                                                         date.minute,
+                                                         date.second)
 
     local("mkdir -p versions")
     try:
-        local("tar -cvzf {}.tgz web_static".format(file))
-        return ("{}.tgz".format(file))
+        local("tar -cvzf {} web_static".format(file))
+        return (file)
     except Exception:
         return (None)
 
