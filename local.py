@@ -22,7 +22,7 @@ from datetime import datetime
 
 name_pattern = "web_static_"
 
-files = local("ls versions | grep web_static_ | sort -r")
+files = local("ls versions | grep web_static_ | sort -tr")
 
 print ("----")
 print((files.stdout))
