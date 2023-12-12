@@ -19,7 +19,8 @@ def do_clean(number=0):
     while len(files_list) > number:
         if files_list[-1] == "":
             files_list.pop()
-        local("rm versions/{}".format(files_list.pop()))
+        else:
+            local("rm versions/{}".format(files_list.pop()))
     # remotely:
     pat = "/data/web_static/releases"
     files = run("ls versions | grep web_static_ | sort -r")
@@ -27,4 +28,5 @@ def do_clean(number=0):
     while len(files_list) > number:
         if files_list[-1] == "":
             files_list.pop()
-        run("rm {}/{}".format(pat, files_list.pop()))
+        else:
+            run("rm {}/{}".format(pat, files_list.pop()))
