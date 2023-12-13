@@ -14,7 +14,7 @@ def do_clean(number=0):
     if number == 0:
         number = 1
     # locally:
-    files = local("ls versions | grep web_static_ | sort -tr")
+    files = local("ls versions | sort -tr")
     files_list = files.stdout.split("\n")
     while len(files_list) > number:
         if files_list[-1] == "":
@@ -23,7 +23,7 @@ def do_clean(number=0):
             local("rm versions/{}".format(files_list.pop()))
     # remotely:
     pat = "/data/web_static/releases"
-    files = run("ls {} | grep web_static_ | sort -tr".format(pat))
+    files = run("ls {} | sort -tr".format(pat))
     files_list = files.stdout.split("\n")
     while len(files_list) > number:
         if files_list[-1] == "":
