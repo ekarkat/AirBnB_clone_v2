@@ -14,17 +14,19 @@ def do_clean(number=0):
     if number == 0:
         number = 1
     # locally:
-    files = local("ls versions | sort -tr").split("\n")
-    while len(files) > number:
-        if files[-1] == "":
-            files.pop()
-        else:
-            local("rm versions/{}".format(files.pop()))
+    with lcd("versions"):
+        files = local("ls -tr").split("\n")
+        while len(files) > number:
+            if files[-1] == "":
+                files.pop()
+            else:
+                local("rm {}".format(files.pop()))
     # remotely:
     pat = "/data/web_static/releases"
-    files = run("ls {} | sort -tr".format(pat)).split("\n")
-    while len(files) > number:
-        if files[-1] == "":
-            files.pop()
-        else:
-            run("rm -rf {}/{}".format(pat, files.pop()))
+    with cd("/data/web_static/releases"):
+        files = run("ls -tr").split("\n")
+        while len(files) > number:
+            if files[-1] == "":
+                files.pop()
+            else:
+                run("rm -rf {}".format(files.pop()))
