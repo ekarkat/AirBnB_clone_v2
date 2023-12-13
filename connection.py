@@ -18,7 +18,7 @@ for con in connections:
     # transfer the file to tmp
     pat = "/data/web_static/releases/"
     print("ls directory")
-    files = con.run("ls {} | grep web_static_ | sort -tr".format(pat), hide=True)
+    files = con.run("ls {} | sort -tr".format(pat), hide=True)
     print(files.stdout)
 
     # print("Movinf file")
