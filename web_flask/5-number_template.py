@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """Create a flask app"""
 
-from flask import Flask
+from flask import Flask, render_template
 
 app = Flask(__name__)
 
@@ -35,6 +35,12 @@ def python_text(text="is cool"):
 def number_text(n):
     """Display number"""
     return ("{} is a number".format(n))
+
+
+@app.route('/number_template/<int:n>', strict_slashes=False)
+def number_template(n):
+    # Render a template based on the variable n
+    return render_template('5-number.html', n=n)
 
 
 if __name__ == "__main__":
