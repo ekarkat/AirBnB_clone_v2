@@ -22,7 +22,7 @@ def hbnb():
 def c_text(text):
     # Replace underscores with spaces
     text = text.replace('_', ' ')
-    return ("{}".format(text))
+    return ("C is {}".format(text))
 
 
 if __name__ == "__main__":
