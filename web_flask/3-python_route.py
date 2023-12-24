@@ -12,10 +12,10 @@ def hello_world():
     return "Hello HBNB!"
 
 
-@app.route("/", strict_slashes=False)
+@app.route("/hbnb", strict_slashes=False)
 def hbnb():
     """ Displays HBNB!"""
-    return "HBNB!"
+    return "HBNB"
 
 
 @app.route('/c/<text>')
@@ -23,6 +23,7 @@ def c_text(text):
     # Replace underscores with spaces
     text = text.replace('_', ' ')
     return ("{}".format(text))
+
 
 @app.route('/python/')
 @app.route('/python/<text>')
