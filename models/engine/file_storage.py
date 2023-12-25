@@ -63,3 +63,7 @@ class FileStorage:
             del FileStorage.__objects[obj_id]
         except Exception:
             pass
+
+    def close(self):
+		# Reload 
+        self.reload()
