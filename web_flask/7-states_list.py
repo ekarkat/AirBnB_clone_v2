@@ -17,7 +17,7 @@ def teardown_appcontext(error=None):
     storage.close()
 
 
-@app.route("/states_list", strict_slashes=False)
+@app.route("/states_list/", strict_slashes=False)
 def states_list():
     result = storage.all(State)
     sorted_res = dict(sorted(result.items(), key=lambda item: item[1].name))
