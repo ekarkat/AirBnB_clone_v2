@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 """Model 8"""
 from models import storage
 from models.state import State
