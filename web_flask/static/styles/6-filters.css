@@ -69,7 +69,8 @@ ul.popover {
 	list-style-type: none; /* remove the bullet points */
 	padding: 28px 47px; /* padding 47 = .location margine so it aligne with the padding of location divs*/
 	z-index: 1; /* make the list appear on top of the other elements */
-	overflow: auto; /* make the list scrollable */
+	overflow-y: auto;
+	/* make the list scrollable */
 	height: 300px; /* set the height of the list */
 }
 
