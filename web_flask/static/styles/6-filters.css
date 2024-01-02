@@ -58,21 +58,7 @@ button:hover {
 
 /** the ul is the container for the list items inside so the border should apply here **/
 
-ul.popover {
-    display: none;
-	position: relative;
-    background-color: #FAFAFA;
-    border: 1px solid #DDDDDD;
-    border-radius: 4px;
-	/* the negative margine helps the block to move backword to the right */
-	margin: 17.5px -1px 0px -48px; /* i have no idea why this works but -48 - -1 = 47 i guess thats why*/
-	list-style-type: none; /* remove the bullet points */
-	padding: 28px 47px; /* padding 47 = .location margine so it aligne with the padding of location divs*/
-	z-index: 1; /* make the list appear on top of the other elements */
-	overflow-y: auto;
-	/* make the list scrollable */
-	height: 300px; /* set the height of the list */
-}
+
 
 /** styling list items of popover **/
 
@@ -101,4 +87,36 @@ div.locations ul.popover{
 .locations:hover .popover,
 .filters .amenities:hover .popover {
     display: block;
+}
+
+ul.popover {
+    display: none;
+	position: relative;
+    background-color: #FAFAFA;
+    border: 1px solid #DDDDDD;
+    border-radius: 4px;
+	/* the negative margine helps the block to move backword to the right */
+	margin: 17.5px -1px 0px -48px; /* i have no idea why this works but -48 - -1 = 47 i guess thats why*/
+	list-style-type: none; /* remove the bullet points */
+	padding: 28px 47px; /* padding 47 = .location margine so it aligne with the padding of location divs*/
+	z-index: 1; /* make the list appear on top of the other elements */
+	overflow-y: scroll;
+	/* make the list scrollable */
+	height: 300px; /* set the height of the list */
+}
+
+.locations:hover .popover {
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    scrollbar-width: none;  /* Firefox */
+}
+.locations:hover .popover::-webkit-scrollbar { 
+    display: none;  /* Safari and Chrome */
+}
+
+.filters .amenities:hover .popover {
+    -ms-overflow-style: none;  /* Internet Explorer 10+ */
+    scrollbar-width: none;  /* Firefox */
+}
+.filters .amenities:hover .popover::-webkit-scrollbar { 
+    display: none;  /* Safari and Chrome */
 }
